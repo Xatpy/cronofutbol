@@ -1,13 +1,15 @@
 import { useRef, useEffect, useState, useCallback, useContext } from "react";
 
+import Confetti from "react-dom-confetti";
+
 import useSound from "use-sound";
 
 import { useGameContext } from "../hooks/useGameContext";
+import useTimer from "../hooks/useTimer";
+import { confettiConfig } from "../utils/config";
+import { msToTime, processTime, processPenalty } from "../utils/time";
 
 import "./Clock.css";
-
-import useTimer from "../hooks/useTimer";
-import { msToTime, processTime, processPenalty } from "../utils/time";
 
 import beepSound from "../assets/beep.ogg";
 
@@ -23,6 +25,8 @@ export const Clock = () => {
 
   const refButtonLeftTop = useRef(null);
   const refInteractiveButton = useRef(null);
+
+  const [isExploding, setIsExploding] = useState(false);
 
   const initButtons = () => {
     const buttons = {
@@ -56,6 +60,7 @@ export const Clock = () => {
   };
 
   const spaceFunction = useCallback((event) => {
+    debugger;
     // interactStopwatch();
     // debugger;
     // if (event.keyCode === 32) {
@@ -79,6 +84,10 @@ export const Clock = () => {
   const interactStopwatch = () => {
     // playBeepSound();
 
+    if (isExploding) {
+      setIsExploding(false);
+    }
+
     refInteractiveButton.current.classList.add("animationButton");
     if (isRunning) {
       handlePause();
@@ -93,10 +102,12 @@ export const Clock = () => {
       if (gameContext.penaltyMode) {
         action = "Next";
         const penaltyResult = processPenalty(elapsedTime);
-        debugger;
         if (penaltyResult === "PAR") {
-          if (gameContext.penaltySelection === "PAR") {
-            // Goal
+          if (
+            gameContext.penaltySelection === "PAR" ||
+            gameContext.penaltySelection === ""
+          ) {
+            setIsExploding(true);
             if (nextPlayer === "1") {
               scorePlayer1 = gameContext.scorePlayer1 + 1;
             } else {
@@ -109,6 +120,7 @@ export const Clock = () => {
         } else {
           if (gameContext.penaltySelection === "IMPAR") {
             // Goal
+            setIsExploding(true);
             if (nextPlayer === "1") {
               scorePlayer1 = gameContext.scorePlayer1 + 1;
             } else {
@@ -122,6 +134,7 @@ export const Clock = () => {
       } else {
         action = processTime(elapsedTime);
         if (action === "GOL") {
+          setIsExploding(true);
           nextPlayer = gameContext.nextPlayer;
           if (nextPlayer === "1") {
             scorePlayer1 = gameContext.scorePlayer1 + 1;
@@ -159,7 +172,6 @@ export const Clock = () => {
     refInteractiveButton.current.classList.remove("animationButton");
   };
 
-  // console.log(elapsedTime);
   if (elapsedTime) {
     const parsedTime = msToTime(elapsedTime);
     document.querySelector(".seconds").innerHTML = parsedTime.milliseconds
@@ -170,92 +182,97 @@ export const Clock = () => {
   }
 
   return (
-    <div onClick={interactStopwatch}>
-      <div className="container">
-        <div className="casio-f91w">
-          <div className="core-watch-container">
-            <div className="buttons-container">
-              <div className="left top button-notch"></div>
-              <div
-                className="button"
-                ref={refButtonLeftTop}
-                id="idButtonLeftTop"
-              ></div>
-              <div className="space"></div>
-              <div className="left bottom button-notch"></div>
-              <div className="button"></div>
-            </div>
-            <div className="core-watch">
-              <div className="crystal-screen">
-                <div className="color-border">
-                  <div className="lcd-screen">
-                    <div className="top">
-                      <div className="brand text-white">CASIO</div>
-                    </div>
-                    <div className="center">
-                      <div className="inner-top">
-                        <div className="action text-white font-small">
-                          <span className="left arrow">◀</span> LIGHT
+    <>
+      <Confetti active={isExploding} config={confettiConfig} />
+      <div onClick={interactStopwatch}>
+        <div className="container">
+          <div className="casio-f91w">
+            <div className="core-watch-container">
+              <div className="buttons-container">
+                <div className="left top button-notch"></div>
+                <div
+                  className="button"
+                  ref={refButtonLeftTop}
+                  id="idButtonLeftTop"
+                ></div>
+                <div className="space"></div>
+                <div className="left bottom button-notch"></div>
+                <div className="button"></div>
+              </div>
+              <div className="core-watch">
+                <div className="crystal-screen">
+                  <div className="color-border">
+                    <div className="lcd-screen">
+                      <div className="top">
+                        <div className="brand text-white">CASIO</div>
+                      </div>
+                      <div className="center">
+                        <div className="inner-top">
+                          <div className="action text-white font-small">
+                            <span className="left arrow">◀</span> LIGHT
+                          </div>
+                          <div className="chronograph text-yellow font-small">
+                            ALARM CHRONOGRAPH
+                          </div>
                         </div>
-                        <div className="chronograph text-yellow font-small">
-                          ALARM CHRONOGRAPH
+                        <div className="inner-center">
+                          <div className="lcd-top">
+                            <span className="timemode">‍</span>
+                            <span className="weekday mini"> ST</span>
+                            <span className="day mini">‍</span>
+                          </div>
+                          <div className="lcd-bottom">
+                            <span className="time">
+                              <span className="hours">00</span>
+                              <span className="sep">:</span>
+                              <span className="minutes">00</span>
+                            </span>
+                            <span className="seconds mini">00</span>
+                          </div>
+                        </div>
+                        <div className="inner-bottom">
+                          <div className="mode text-white font-small">
+                            <span className="left arrow">◀</span> MODE
+                          </div>
+                          <div className="alarm text-white font-small">
+                            ALARM ON-OFF/24HR{" "}
+                            <span className="right arrow">▶</span>
+                          </div>
                         </div>
                       </div>
-                      <div className="inner-center">
-                        <div className="lcd-top">
-                          <span className="timemode">‍</span>
-                          <span className="weekday mini"> ST</span>
-                          <span className="day mini">‍</span>
+                      <div className="bottom">
+                        <div className="water text-white font-medium">
+                          WATER
                         </div>
-                        <div className="lcd-bottom">
-                          <span className="time">
-                            <span className="hours">00</span>
-                            <span className="sep">:</span>
-                            <span className="minutes">00</span>
+                        <div className="wr-box text-red">
+                          <span>
+                            W<span className="r">R</span>
                           </span>
-                          <span className="seconds mini">00</span>
                         </div>
-                      </div>
-                      <div className="inner-bottom">
-                        <div className="mode text-white font-small">
-                          <span className="left arrow">◀</span> MODE
+                        <div className="resist text-white font-medium">
+                          RESIST
                         </div>
-                        <div className="alarm text-white font-small">
-                          ALARM ON-OFF/24HR{" "}
-                          <span className="right arrow">▶</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="bottom">
-                      <div className="water text-white font-medium">WATER</div>
-                      <div className="wr-box text-red">
-                        <span>
-                          W<span className="r">R</span>
-                        </span>
-                      </div>
-                      <div className="resist text-white font-medium">
-                        RESIST
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="buttons-container">
-              <div className="right top button-notch"></div>
-              <div className="space"></div>
-              <div className="right bottom button-notch"></div>
-              <div
-                className="button"
-                id="interactiveButton"
-                ref={refInteractiveButton}
-                onAnimationEnd={onAnimationEnd}
-              ></div>
+              <div className="buttons-container">
+                <div className="right top button-notch"></div>
+                <div className="space"></div>
+                <div className="right bottom button-notch"></div>
+                <div
+                  className="button"
+                  id="interactiveButton"
+                  ref={refInteractiveButton}
+                  onAnimationEnd={onAnimationEnd}
+                ></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
