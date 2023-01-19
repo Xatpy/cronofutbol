@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useCallback, useContext } from "react";
+import { useRef, useState } from "react";
 
 import Confetti from "react-dom-confetti";
 
@@ -14,12 +14,11 @@ import "./Clock.css";
 import beepSound from "../assets/beep.ogg";
 
 export const Clock = () => {
-  const { elapsedTime, isRunning, handleStart, handlePause, handleReset } =
-    useTimer(0);
+  const { elapsedTime, isRunning, handleStart, handlePause } = useTimer(0);
 
   const [playBeepSound] = useSound(beepSound);
 
-  let dom = {};
+  // let dom = {};
 
   const [gameContext, updateGameContext] = useGameContext();
 
@@ -28,7 +27,7 @@ export const Clock = () => {
 
   const [isExploding, setIsExploding] = useState(false);
 
-  const initButtons = () => {
+  /*const initButtons = () => {
     const buttons = {
       //leftTop: document.querySelector(".button-notch.left.top + .button"),
       leftTop: document.getElementById("idButtonLeftTop"),
@@ -57,9 +56,9 @@ export const Clock = () => {
       seconds: document.querySelector(".seconds"),
       innerCenter: document.querySelector(".inner-center"),
     };
-  };
+  };*/
 
-  const spaceFunction = useCallback((event) => {
+  /*const spaceFunction = useCallback((event) => {
     debugger;
     // interactStopwatch();
     // debugger;
@@ -75,11 +74,11 @@ export const Clock = () => {
     return () => {
       document.removeEventListener("keydown", spaceFunction, false);
     };
-  }, []);
+  }, []);*/
 
-  useEffect(() => {
-    initButtons();
-  }, [refButtonLeftTop]);
+  // useEffect(() => {
+  //   initButtons();
+  // }, [initButtons]);
 
   const interactStopwatch = () => {
     playBeepSound();
