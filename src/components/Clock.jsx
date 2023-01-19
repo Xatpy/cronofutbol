@@ -82,7 +82,7 @@ export const Clock = () => {
   }, [refButtonLeftTop]);
 
   const interactStopwatch = () => {
-    // playBeepSound();
+    playBeepSound();
 
     if (isExploding) {
       setIsExploding(false);
