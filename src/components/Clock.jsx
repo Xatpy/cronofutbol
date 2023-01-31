@@ -16,7 +16,7 @@ import beepSound from "../assets/beep.ogg";
 export const Clock = () => {
   const { elapsedTime, isRunning, handleStart, handlePause } = useTimer(0);
 
-  const [playBeepSound] = useSound(beepSound);
+  const [playBeepSound] = useSound(beepSound, { autoplay: true });
 
   // let dom = {};
 
