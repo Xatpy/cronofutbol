@@ -182,8 +182,7 @@ export const Clock = () => {
 
   return (
     <>
-      <Confetti active={isExploding} config={confettiConfig} />
-      <div onClick={interactStopwatch}>
+      <div id="clockShape" onClick={interactStopwatch}>
         <div className="container">
           <div className="casio-f91w">
             <div className="core-watch-container">
@@ -271,6 +270,7 @@ export const Clock = () => {
           </div>
         </div>
       </div>
+      <Confetti active={isExploding} config={confettiConfig} />
     </>
   );
 };

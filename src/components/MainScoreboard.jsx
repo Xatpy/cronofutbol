@@ -1,67 +1,36 @@
 import "./MainScoreboard.css";
 
-import { useRef } from "react";
-
 import { useGameContext } from "../hooks/useGameContext";
 
 export const MainScoreboard = () => {
-  const [gameContext, updateGameContext] = useGameContext();
-
-  const refParButton = useRef(null);
-  const refImparButton = useRef(null);
-
-  const selectPar = () => {
-    refParButton.current.classList.add("rainbow");
-    refImparButton.current.classList.remove("rainbow");
-    updateGameContext({
-      ...gameContext,
-      penaltySelection: "PAR",
-    });
-  };
-
-  const selectImpar = () => {
-    refParButton.current.classList.remove("rainbow");
-    refImparButton.current.classList.add("rainbow");
-    updateGameContext({
-      ...gameContext,
-      penaltySelection: "IMPAR",
-    });
-  };
+  const [gameContext] = useGameContext();
 
   return (
     <div className="container">
       <div className="tableScoreboard">
-        <span>Scoreboard</span>
-        <span>Jugador 1: {gameContext.scorePlayer1}</span>
-        <span>Jugador 2: {gameContext.scorePlayer2}</span>
+        <table>
+          <tr>
+            <td className="scoreboardPlayer1">Jugador 1</td>
+            <td className="versusCell"> vs </td>
+            <td className="scoreboardPlayer2">Jugador 2</td>
+          </tr>
+          <tr>
+            <td className="scoreboardPlayer1">{gameContext.scorePlayer1}</td>
+            <td>-</td>
+            <td className="scoreboardPlayer2">{gameContext.scorePlayer2}</td>
+          </tr>
+        </table>
       </div>
-      <div className="tableAction">
+      <div
+        className={`tableAction ${
+          gameContext.nextPlayer === "1" ? "player1Color" : "player2Color"
+        }`}
+      >
         <span>Turno: Jug. {gameContext.nextPlayer}</span>
         <span>
           {gameContext.isPlaying ? "Playing" : ` ${gameContext.action}`}
         </span>
       </div>
-      {gameContext.penaltyMode && (
-        <div className="tablePenaltySelection">
-          <span>Penalty! Elige:</span>
-          <div className="buttonSelection">
-            <button
-              className="buttonBase rainbow"
-              onClick={selectPar}
-              ref={refParButton}
-            >
-              PAR
-            </button>
-            <button
-              className="buttonBase"
-              onClick={selectImpar}
-              ref={refImparButton}
-            >
-              IMPAR
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

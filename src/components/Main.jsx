@@ -1,7 +1,9 @@
 import React from "react";
 
 import { Clock } from "./Clock";
+import { Header } from "./Header";
 import { MainScoreboard } from "./MainScoreboard";
+import { PenaltySelection } from "./PenaltySelection";
 
 import "./Main.css";
 
@@ -16,11 +18,15 @@ const initialUser = {
 
 export const Main = () => {
   return (
-    <GameContextProvider value={initialUser}>
-      <div className="mainContainer">
-        <MainScoreboard />
-        <Clock />
-      </div>
-    </GameContextProvider>
+    <>
+      <Header />
+      <GameContextProvider value={initialUser}>
+        <div className="mainContainer">
+          <MainScoreboard />
+          <Clock />
+          <PenaltySelection />
+        </div>
+      </GameContextProvider>
+    </>
   );
 };

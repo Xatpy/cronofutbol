@@ -4,10 +4,35 @@
   gap: 25px;
 }
 
+.scoreboardPlayer1 {
+  color: #f94744;
+}
+
+.scoreboardPlayer2 {
+  color: #04bdde;
+}
+
+.player1Color {
+  background-color: #f94744;
+}
+
+.player2Color {
+  background-color: #04bdde;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.visibilityHidden {
+  visibility: hidden;
+}
+
 .tableScoreboard {
   display: flex;
   flex-direction: column;
-  background-color: brown;
+  background-color: grey;
+
   border-radius: 5px;
   padding: 5px;
 }
@@ -15,7 +40,6 @@
 .tableAction {
   display: flex;
   flex-direction: column;
-  background-color: green;
   border-radius: 5px;
   padding: 5px;
 }
@@ -25,6 +49,10 @@
   flex-direction: column;
   background-color: orange;
   border-radius: 5px;
+}
+
+.versusCell {
+  padding: 0 15px;
 }
 
 .divChoice {
