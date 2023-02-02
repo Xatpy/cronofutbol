@@ -2,6 +2,7 @@ import React from "react";
 
 import { Clock } from "./Clock";
 import { Header } from "./Header";
+import { HowToPlay } from "./HowToPlay";
 import { MainScoreboard } from "./MainScoreboard";
 import { PenaltySelection } from "./PenaltySelection";
 
@@ -22,6 +23,7 @@ export const Main = () => {
       <Header />
       <GameContextProvider value={initialUser}>
         <div className="mainContainer">
+          <HowToPlay />
           <MainScoreboard />
           <Clock />
           <PenaltySelection />
