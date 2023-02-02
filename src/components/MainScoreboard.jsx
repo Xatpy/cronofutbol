@@ -15,9 +15,13 @@ export const MainScoreboard = () => {
             <td className="scoreboardPlayer2">Jugador 2</td>
           </tr>
           <tr>
-            <td className="scoreboardPlayer1">{gameContext.scorePlayer1}</td>
+            <td className="scoreboardPlayer1 scoreboardNumber">
+              {gameContext.scorePlayer1}
+            </td>
             <td>-</td>
-            <td className="scoreboardPlayer2">{gameContext.scorePlayer2}</td>
+            <td className="scoreboardPlayer2 scoreboardNumber">
+              {gameContext.scorePlayer2}
+            </td>
           </tr>
         </table>
       </div>

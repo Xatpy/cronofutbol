@@ -1,7 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Gidugu&family=Michroma&display=swap");
+
+@font-face {
+  font-family: "DSEG7 Classic";
+  src: url(https://manzdev.github.io/twitch-casio/dseg7-bold.woff2)
+      format("woff2"),
+    url(https://manzdev.github.io/twitch-casio/dseg7-bold.woff) format("woff");
+  font-display: swap;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   gap: 25px;
+  width: 400px;
+}
+
+.scoreboardNumber {
+  font-family: "DSEG7 Classic";
 }
 
 .scoreboardPlayer1 {
@@ -49,6 +64,12 @@
   flex-direction: column;
   background-color: orange;
   border-radius: 5px;
+  width: 400px;
+}
+
+.buttonSelection {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .versusCell {

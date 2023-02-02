@@ -31,7 +31,7 @@ export const PenaltySelection = () => {
         gameContext.penaltyMode ? "visible" : "visibilityHidden"
       }`}
     >
-      <span>Penalty! Elige:</span>
+      <span>¡Penalty! Elige una opción:</span>
       <div className="buttonSelection">
         <button
           className="buttonBase rainbow"
