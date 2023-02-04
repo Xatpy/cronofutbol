@@ -20,13 +20,13 @@ export function processTime(duration) {
   const time = msToTime(duration);
   const ms = time.milliseconds;
   if (ms === 0) {
-    return "GOL";
+    return "Gol";
   } else if ([10, 20, 30, 40, 50, 60, 70, 80, 90].includes(ms)) {
-    return "FALTA";
+    return "Falta";
   } else if ([99, 1].includes(ms)) {
-    return "PENALTY";
+    return "Penalty";
   } else if (ms < 50) {
-    return "PENALTY";
+    return "Penalty";
   } else {
     return "Next";
   }

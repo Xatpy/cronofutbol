@@ -5,24 +5,28 @@ import { useGameContext } from "../hooks/useGameContext";
 export const MainScoreboard = () => {
   const [gameContext] = useGameContext();
 
+  console.log(gameContext.action);
+
   return (
     <div className="container">
       <div className="tableScoreboard">
         <table>
-          <tr>
-            <td className="scoreboardPlayer1">Jugador 1</td>
-            <td className="versusCell"> vs </td>
-            <td className="scoreboardPlayer2">Jugador 2</td>
-          </tr>
-          <tr>
-            <td className="scoreboardPlayer1 scoreboardNumber">
-              {gameContext.scorePlayer1}
-            </td>
-            <td>-</td>
-            <td className="scoreboardPlayer2 scoreboardNumber">
-              {gameContext.scorePlayer2}
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td className="scoreboardPlayer1">Jugador 1</td>
+              <td className="versusCell"> vs </td>
+              <td className="scoreboardPlayer2">Jugador 2</td>
+            </tr>
+            <tr>
+              <td className="scoreboardPlayer1 scoreboardNumber">
+                {gameContext.scorePlayer1}
+              </td>
+              <td>-</td>
+              <td className="scoreboardPlayer2 scoreboardNumber">
+                {gameContext.scorePlayer2}
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div
@@ -32,7 +36,13 @@ export const MainScoreboard = () => {
       >
         <span>Turno: Jug. {gameContext.nextPlayer}</span>
         <span>
-          {gameContext.isPlaying ? "Playing" : ` ${gameContext.action}`}
+          {gameContext.isPlaying
+            ? "Jugando "
+            : `${
+                gameContext.action !== "Next"
+                  ? gameContext.action
+                  : "Pulsa el reloj"
+              }`}
         </span>
       </div>
     </div>

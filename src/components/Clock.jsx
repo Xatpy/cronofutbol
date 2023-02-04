@@ -18,67 +18,12 @@ export const Clock = () => {
 
   const [playBeepSound] = useSound(beepSound, { autoplay: true });
 
-  // let dom = {};
-
   const [gameContext, updateGameContext] = useGameContext();
 
   const refButtonLeftTop = useRef(null);
   const refInteractiveButton = useRef(null);
 
   const [isExploding, setIsExploding] = useState(false);
-
-  /*const initButtons = () => {
-    const buttons = {
-      //leftTop: document.querySelector(".button-notch.left.top + .button"),
-      leftTop: document.getElementById("idButtonLeftTop"),
-      //leftTop: refButtonLeftTop,
-      // leftBottom: document.querySelector(".button-notch.left.bottom + .button"),
-      // rightBottom: document.querySelector(".button-notch.right.bottom + .button"),
-    };
-
-    if (buttons.leftTop) {
-      buttons.leftTop.addEventListener("mousedown", () => {
-        dom.innerCenter.classList.add("on");
-        document.body.classList.add("off");
-      });
-    }
-
-    buttons.leftTop.addEventListener("mouseup", () => {
-      dom.innerCenter.classList.remove("on");
-      document.body.classList.remove("off");
-    });
-
-    dom = {
-      day: document.querySelector(".day"),
-      weekday: document.querySelector(".weekday"),
-      hours: document.querySelector(".hours"),
-      minutes: document.querySelector(".minutes"),
-      seconds: document.querySelector(".seconds"),
-      innerCenter: document.querySelector(".inner-center"),
-    };
-  };*/
-
-  /*const spaceFunction = useCallback((event) => {
-    debugger;
-    // interactStopwatch();
-    // debugger;
-    // if (event.keyCode === 32) {
-    //   // Space
-    //   interactStopwatch();
-    // }
-  }, []);
-
-  useEffect(() => {
-    document.addEventListener("keydown", spaceFunction, false);
-
-    return () => {
-      document.removeEventListener("keydown", spaceFunction, false);
-    };
-  }, []);*/
-
-  // useEffect(() => {
-  //   initButtons();
-  // }, [initButtons]);
 
   const interactStopwatch = () => {
     playBeepSound();
@@ -88,6 +33,9 @@ export const Clock = () => {
     }
 
     refInteractiveButton.current.classList.add("animationButton");
+
+    const goalText = "¡Gol! ⚽️";
+
     if (isRunning) {
       handlePause();
 
@@ -106,6 +54,7 @@ export const Clock = () => {
             gameContext.penaltySelection === "PAR" ||
             gameContext.penaltySelection === ""
           ) {
+            action = goalText;
             setIsExploding(true);
             if (nextPlayer === "1") {
               scorePlayer1 = gameContext.scorePlayer1 + 1;
@@ -118,7 +67,7 @@ export const Clock = () => {
           }
         } else {
           if (gameContext.penaltySelection === "IMPAR") {
-            // Goal
+            action = goalText;
             setIsExploding(true);
             if (nextPlayer === "1") {
               scorePlayer1 = gameContext.scorePlayer1 + 1;
@@ -132,7 +81,8 @@ export const Clock = () => {
         }
       } else {
         action = processTime(elapsedTime);
-        if (action === "GOL") {
+        if (action === "Gol") {
+          action = goalText;
           setIsExploding(true);
           nextPlayer = gameContext.nextPlayer;
           if (nextPlayer === "1") {
@@ -141,7 +91,7 @@ export const Clock = () => {
             scorePlayer2 = gameContext.scorePlayer2 + 1;
           }
           // } else if (action === "FALTA") {
-        } else if (action === "PENALTY") {
+        } else if (action === "Penalty") {
           penaltyMode = true;
         } else {
           nextPlayer = nextPlayer === "1" ? "2" : "1";
