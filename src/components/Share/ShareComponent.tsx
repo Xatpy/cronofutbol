@@ -33,9 +33,7 @@ export const ShareComponent: React.FC<Props> = ({ type, title }) => {
           />
         );
       case ShareType.Twitter: {
-        const tweetMessage = encodeURI(
-          `🎶 ${title} Sounds Table - La web app con sus mejores sonidos: `
-        );
+        const tweetMessage = encodeURI(`⏱️ ⚽️ - El juego : `);
         return (
           <ShareLink
             href={`https://twitter.com/intent/tweet?text=${tweetMessage}${url}`}
