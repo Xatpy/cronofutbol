@@ -1,3 +1,7 @@
+li {
+  margin: 25px;
+}
+
 .howToPlayDiv {
   margin: 5px;
   font-style: italic;
@@ -7,10 +11,10 @@
 .divTooltipInstructions {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 500px;
-  height: 325px;
+  height: 400px;
 
   background-color: rgba(252, 181, 29, 0.846);
   display: flex;
@@ -41,9 +45,16 @@
     height: 300px;
     font-size: 0.85em;
   }
+
+  li {
+    margin: 10px;
+  }
 }
 
 @media (max-width: 420px) {
+  li {
+    margin: 5px;
+  }
   .divTooltipInstructions {
     width: 300px;
     height: 325px;

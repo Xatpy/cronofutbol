@@ -21,7 +21,7 @@ export const HowToPlay = () => {
             El jugador repite turno
           </li>
           <li>
-            <span className="listTitle">penalti</span> - (01, 99) - El jugador
+            <span className="listTitle">Penalti</span> - (01, 99) - El jugador
             elige PAR o IMPAR y tira de nuevo. Si acierta al parar el crono, es
             gol.
           </li>
