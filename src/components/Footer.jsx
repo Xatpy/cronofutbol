@@ -9,7 +9,7 @@ export const Footer = () => {
     <div className="divTooltipFooter">
       <p>
         <a
-          href="https://stackoverflow.com/questions/19694130/page-height-to-100-of-viewport"
+          href="https://codepen.io/manz/pen/KKWmWLb"
           target="_blank"
           rel="noopener noreferrer"
         >
