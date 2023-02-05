@@ -1,5 +1,7 @@
 import { Tooltip } from "react-tippy";
 
+import { SharePanel } from "./Share/SharePanel";
+
 import "./Footer.css";
 
 export const Footer = () => {
@@ -27,6 +29,7 @@ export const Footer = () => {
 
   return (
     <footer className="footer">
+      <SharePanel />
       <Tooltip
         title="Titulos"
         position="bottom"
