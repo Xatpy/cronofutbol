@@ -1,11 +1,10 @@
-.footer {
-  display: flex;
-  justify-content: center;
-  min-height: 5vh;
-  width: 100%;
+.howToPlayDiv {
+  margin: 5px;
 }
 
 .divTooltip {
+  display: flex;
+  flex-direction: column;
   width: 400px;
   height: 100px;
 

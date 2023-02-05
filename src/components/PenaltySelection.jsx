@@ -1,5 +1,7 @@
 import { useRef } from "react";
 
+import "./PenaltySelection.css";
+
 import { useGameContext } from "../hooks/useGameContext";
 
 export const PenaltySelection = () => {

@@ -2,7 +2,7 @@
   min-height: 90vh;
   width: 100%;
   display: flex;
-  flex: 1 6 auto;
+  /* flex: 1 6 auto; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -10,6 +10,6 @@
 
 @media (max-width: 480px) {
   .mainContainer {
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 }

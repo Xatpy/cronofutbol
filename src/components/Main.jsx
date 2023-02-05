@@ -24,8 +24,8 @@ export const Main = () => {
         <div className="mainContainer">
           <HowToPlay />
           <MainScoreboard />
-          <Clock />
           <PenaltySelection />
+          <Clock />
           <Footer />
         </div>
       </GameContextProvider>

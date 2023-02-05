@@ -1,0 +1,85 @@
+.buttonSelection {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.tablePenaltySelection {
+  display: flex;
+  flex-direction: column;
+  background-color: orange;
+  border-radius: 5px;
+  width: 700px;
+}
+
+.buttonBase {
+  margin: 5px;
+  position: relative;
+  z-index: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.rainbow {
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 8px;
+}
+
+.rainbow::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-color: #399953;
+  background-repeat: no-repeat;
+  background-size: 50% 50%, 50% 50%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  /* background-image: linear-gradient(#399953, #399953),
+      linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33),
+      linear-gradient(#377af5, #377af5); */
+  background-image: linear-gradient(#faef28, #faef28),
+    linear-gradient(#383300, #383300), linear-gradient(#faef28, #faef28),
+    linear-gradient(#383300, #383300);
+  -webkit-animation: rotate 4s linear infinite;
+  animation: rotate 4s linear infinite;
+}
+.rainbow::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 6px;
+  top: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  background: white;
+  border-radius: 5px;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+@media (max-width: 640px) {
+  .tablePenaltySelection {
+    display: flex;
+    flex-direction: column;
+    background-color: orange;
+    border-radius: 5px;
+    width: 300px;
+  }
+}
