@@ -5,6 +5,9 @@
 
 html {
   background-color: #000;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 body {
   min-height: 100vh;
@@ -28,4 +31,23 @@ body {
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+/* @import url("https://fonts.googleapis.com/css2?family=Gidugu&family=Michroma&display=swap"); */
+
+/*@font-face {
+  font-family: "DSEG7 Classic";
+  src: url(https://manzdev.github.io/twitch-casio/dseg7-bold.woff2)
+      format("woff2"),
+    url(https://manzdev.github.io/twitch-casio/dseg7-bold.woff) format("woff");
+  font-display: swap;
+}*/
+
+@font-face {
+  font-family: "DSEG7 Classic";
+  src: local("DSEG7 Classic"),
+    url("./assets/dseg7-bold.woff2") format("woff2")
+      url("./assets/dseg7-bold.woff") format("woff");
+
+  font-display: swap;
 }

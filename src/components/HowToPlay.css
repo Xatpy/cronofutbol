@@ -1,5 +1,7 @@
 .howToPlayDiv {
   margin: 5px;
+  font-style: italic;
+  color: lightgrey;
 }
 
 .divTooltipInstructions {
@@ -27,4 +29,24 @@
 
 .listTitle {
   font-weight: bold;
+}
+
+.zeroMs {
+  font-family: "DSEG7 Classic";
+}
+
+@media (max-width: 640px) {
+  .divTooltipInstructions {
+    width: 400px;
+    height: 300px;
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 420px) {
+  .divTooltipInstructions {
+    width: 300px;
+    height: 325px;
+    font-size: 0.75em;
+  }
 }

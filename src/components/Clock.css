@@ -157,7 +157,7 @@ span.arrow.right {
 }
 
 .casio-f91w .core-watch-container .button-notch.right + .button {
-  transform: translate(-18px, -50px);
+  transform: translate(-10px, -50px);
 }
 
 .casio-f91w .core-watch-container .button-notch.left + .button {
@@ -423,12 +423,18 @@ span.arrow.right {
 
 @keyframes fade-in-keyframes {
   from {
-    transform: translate(-18px, -50px);
+    transform: translate(-15px, -50px);
   }
   to {
-    transform: translate(-22px, -50px);
+    transform: translate(-20px, -50px);
   }
 }
 
 @media (max-width: 480px) {
+}
+
+@media (max-width: 420px) {
+  .clockShape {
+    transform: scale(0.75);
+  }
 }

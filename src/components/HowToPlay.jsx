@@ -32,14 +32,11 @@ export const HowToPlay = () => {
 
   return (
     <div className="howToPlayDiv">
-      <Tooltip
-        title="Titulos"
-        position="bottom"
-        //   trigger="click"
-        html={divHowToPlay}
-        arrow
-      >
-        <p>📜 Para el crono en "00" para marcar gol ℹ️</p>
+      <Tooltip title="Titulos" position="bottom" html={divHowToPlay} arrow>
+        <p>
+          📜 Para el crono en "<span className="zeroMs">00</span>" ms para
+          marcar gol ℹ️
+        </p>
       </Tooltip>
     </div>
   );

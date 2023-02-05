@@ -42,11 +42,11 @@ export const Clock = () => {
       let nextPlayer = gameContext.nextPlayer;
       let scorePlayer1 = gameContext.scorePlayer1;
       let scorePlayer2 = gameContext.scorePlayer2;
-      let penaltiMode = false;
+      let penaltyMode = false;
 
       let action = "";
 
-      if (gameContext.penaltiMode) {
+      if (gameContext.penaltyMode) {
         action = "Next";
         const penaltiResult = processpenalti(elapsedTime);
         if (penaltiResult === "PAR") {
@@ -92,7 +92,7 @@ export const Clock = () => {
           }
           // } else if (action === "FALTA") {
         } else if (action === "Penalti") {
-          penaltiMode = true;
+          penaltyMode = true;
         } else {
           nextPlayer = nextPlayer === "1" ? "2" : "1";
         }
@@ -105,7 +105,7 @@ export const Clock = () => {
         scorePlayer2: scorePlayer2,
         action: action,
         isPlaying: false,
-        penaltiMode: penaltiMode,
+        penaltyMode: penaltyMode,
       });
     } else {
       handleStart();

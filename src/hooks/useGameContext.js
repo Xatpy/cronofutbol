@@ -8,7 +8,7 @@ const initialState = {
   scorePlayer2: 0,
   action: "",
   isPlaying: false,
-  penaltiMode: false,
+  penaltyMode: false,
   penaltiSelection: "",
 };
 

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Gidugu&family=Michroma&display=swap");
+/*@import url("https://fonts.googleapis.com/css2?family=Gidugu&family=Michroma&display=swap");
 
 @font-face {
   font-family: "DSEG7 Classic";
@@ -6,7 +6,7 @@
       format("woff2"),
     url(https://manzdev.github.io/twitch-casio/dseg7-bold.woff) format("woff");
   font-display: swap;
-}
+}*/
 
 .container {
   display: flex;
@@ -78,7 +78,7 @@
   .container {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
     width: 400px;
     margin: 15px;
   }
@@ -86,6 +86,24 @@
   .table {
     padding: 0px;
 
+    font-size: 0.5em;
+  }
+
+  .button {
+    margin: 1px;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    gap: 10px;
+    width: 300px;
+    margin: 5px 10px;
+    font-size: 0.75em;
+  }
+
+  .table {
+    padding: 0px;
     font-size: 0.5em;
   }
 

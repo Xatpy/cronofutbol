@@ -30,7 +30,7 @@ export const PenaltiSelection = () => {
   return (
     <div
       className={`tablepenaltiSelection ${
-        gameContext.penaltiMode ? "visible" : "visibilityHidden"
+        gameContext.penaltyMode ? "visible" : "visibilityHidden"
       }`}
     >
       <span>¡Penalti! Elige una opción:</span>

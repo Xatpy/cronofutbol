@@ -11,7 +11,14 @@
 
 @media (max-width: 640px) {
   .title {
-    font-size: 2em;
+    font-size: 1.65em;
+    font-weight: bolder;
+  }
+}
+
+@media (max-width: 420px) {
+  .title {
+    font-size: 1em;
     font-weight: bolder;
   }
 }

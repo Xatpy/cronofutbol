@@ -82,4 +82,26 @@
     border-radius: 5px;
     width: 400px;
   }
+
+  .buttonBase {
+    margin: 6px;
+    width: 20%;
+  }
+}
+
+@media (max-width: 420px) {
+  .tablepenaltiSelection {
+    width: 300px;
+
+    font-size: 0.75em;
+  }
+
+  .rainbow {
+    padding: 2px;
+  }
+
+  .buttonBase {
+    margin: 5px;
+    width: 25%;
+  }
 }
