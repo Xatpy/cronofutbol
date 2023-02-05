@@ -1,6 +1,5 @@
-import React from "react";
-
 import { Clock } from "./Clock";
+import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { HowToPlay } from "./HowToPlay";
 import { MainScoreboard } from "./MainScoreboard";
@@ -27,6 +26,7 @@ export const Main = () => {
           <MainScoreboard />
           <Clock />
           <PenaltySelection />
+          <Footer />
         </div>
       </GameContextProvider>
     </>

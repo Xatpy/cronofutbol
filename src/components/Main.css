@@ -1,9 +1,10 @@
 .mainContainer {
+  min-height: 90vh;
   width: 100%;
   display: flex;
   flex: 1 6 auto;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 

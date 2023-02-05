@@ -132,7 +132,7 @@ export const Clock = () => {
 
   return (
     <>
-      <div id="clockShape" onClick={interactStopwatch}>
+      <div className="clockShape" onClick={interactStopwatch}>
         <div className="container">
           <div className="casio-f91w">
             <div className="core-watch-container">

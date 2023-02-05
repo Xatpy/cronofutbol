@@ -59,6 +59,11 @@ body.off {
   background: #111;
 }
 
+.clockShape {
+  display: flex;
+  flex: 5;
+}
+
 .casio-f91w,
 .container {
   /* pointer-events: none; */
