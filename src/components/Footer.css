@@ -5,13 +5,14 @@
   width: 100%;
 }
 
-.divTooltip {
-  width: 400px;
+.divTooltipFooter {
+  width: 600px;
   height: 100px;
 
-  background-color: rgba(252, 181, 29, 0.646);
+  background-color: #b9fc1dce;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 25px;
+  /* margin: 25px; */
 }

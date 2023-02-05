@@ -3,7 +3,7 @@
   justify-content: space-evenly;
 }
 
-.tablePenaltySelection {
+.tablepenaltiSelection {
   display: flex;
   flex-direction: column;
   background-color: orange;
@@ -19,6 +19,7 @@
   overflow: hidden;
   padding: 4px;
   cursor: pointer;
+  width: 10%;
 }
 
 .rainbow {
@@ -37,7 +38,6 @@
   top: -50%;
   width: 200%;
   height: 200%;
-  background-color: #399953;
   background-repeat: no-repeat;
   background-size: 50% 50%, 50% 50%;
   background-position: 0 0, 100% 0, 100% 100%, 0 100%;
@@ -75,11 +75,11 @@
 }
 
 @media (max-width: 640px) {
-  .tablePenaltySelection {
+  .tablepenaltiSelection {
     display: flex;
     flex-direction: column;
     background-color: orange;
     border-radius: 5px;
-    width: 300px;
+    width: 400px;
   }
 }

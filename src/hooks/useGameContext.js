@@ -8,8 +8,8 @@ const initialState = {
   scorePlayer2: 0,
   action: "",
   isPlaying: false,
-  penaltyMode: true,
-  penaltySelection: "",
+  penaltiMode: false,
+  penaltiSelection: "",
 };
 
 export const useGameContext = () => useContext(GameContext);

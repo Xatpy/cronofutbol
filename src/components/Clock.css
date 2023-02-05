@@ -48,6 +48,17 @@
   --button-notch-shape: polygon(100% 0, 100% 100%, 0 90%, 0 10%);
 }
 
+body {
+  margin: 0;
+  font-family: Michroma, sans-serif;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+body.off {
+  background: #111;
+}
+
 .clockShape {
   display: flex;
   flex: 5;
@@ -55,6 +66,7 @@
 
 .casio-f91w,
 .container {
+  /* pointer-events: none; */
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;

@@ -3,7 +3,7 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { HowToPlay } from "./HowToPlay";
 import { MainScoreboard } from "./MainScoreboard";
-import { PenaltySelection } from "./PenaltySelection";
+import { PenaltiSelection } from "./PenaltiSelection";
 
 import "./Main.css";
 
@@ -24,8 +24,8 @@ export const Main = () => {
         <div className="mainContainer">
           <HowToPlay />
           <MainScoreboard />
-          <PenaltySelection />
           <Clock />
+          <PenaltiSelection />
           <Footer />
         </div>
       </GameContextProvider>

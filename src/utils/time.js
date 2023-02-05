@@ -24,15 +24,15 @@ export function processTime(duration) {
   } else if ([10, 20, 30, 40, 50, 60, 70, 80, 90].includes(ms)) {
     return "Falta";
   } else if ([99, 1].includes(ms)) {
-    return "Penalty";
-  } else if (ms < 50) {
-    return "Penalty";
+    return "Penalti";
+    // } else if (ms < 50) {
+    //   return "Penalti";
   } else {
     return "Next";
   }
 }
 
-export function processPenalty(duration) {
+export function processpenalti(duration) {
   const time = msToTime(duration);
   return time.milliseconds % 2 === 0 ? "PAR" : "IMPAR";
 }

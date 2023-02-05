@@ -2,15 +2,29 @@
   margin: 5px;
 }
 
-.divTooltip {
+.divTooltipInstructions {
   display: flex;
   flex-direction: column;
-  width: 400px;
-  height: 100px;
+  justify-content: flex-start;
+  align-items: center;
+  width: 500px;
+  height: 325px;
 
-  background-color: rgba(252, 181, 29, 0.646);
+  background-color: rgba(252, 181, 29, 0.846);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 25px;
+}
+
+.instructions {
+  margin: 20px;
+}
+
+.list {
+  margin: 20px;
+}
+
+.listTitle {
+  font-weight: bold;
 }

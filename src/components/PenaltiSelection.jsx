@@ -1,10 +1,10 @@
 import { useRef } from "react";
 
-import "./PenaltySelection.css";
+import "./PenaltiSelection.css";
 
 import { useGameContext } from "../hooks/useGameContext";
 
-export const PenaltySelection = () => {
+export const PenaltiSelection = () => {
   const [gameContext, updateGameContext] = useGameContext();
 
   const refParButton = useRef(null);
@@ -14,7 +14,7 @@ export const PenaltySelection = () => {
     refImparButton.current.classList.remove("rainbow");
     updateGameContext({
       ...gameContext,
-      penaltySelection: "PAR",
+      penaltiSelection: "PAR",
     });
   };
 
@@ -23,17 +23,17 @@ export const PenaltySelection = () => {
     refImparButton.current.classList.add("rainbow");
     updateGameContext({
       ...gameContext,
-      penaltySelection: "IMPAR",
+      penaltiSelection: "IMPAR",
     });
   };
 
   return (
     <div
-      className={`tablePenaltySelection ${
-        gameContext.penaltyMode ? "visible" : "visibilityHidden"
+      className={`tablepenaltiSelection ${
+        gameContext.penaltiMode ? "visible" : "visibilityHidden"
       }`}
     >
-      <span>¡Penalty! Elige una opción:</span>
+      <span>¡Penalti! Elige una opción:</span>
       <div className="buttonSelection">
         <button
           className="buttonBase rainbow"

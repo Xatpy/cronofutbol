@@ -7,7 +7,7 @@ import useSound from "use-sound";
 import { useGameContext } from "../hooks/useGameContext";
 import useTimer from "../hooks/useTimer";
 import { confettiConfig } from "../utils/config";
-import { msToTime, processTime, processPenalty } from "../utils/time";
+import { msToTime, processTime, processpenalti } from "../utils/time";
 
 import "./Clock.css";
 
@@ -42,17 +42,17 @@ export const Clock = () => {
       let nextPlayer = gameContext.nextPlayer;
       let scorePlayer1 = gameContext.scorePlayer1;
       let scorePlayer2 = gameContext.scorePlayer2;
-      let penaltyMode = false;
+      let penaltiMode = false;
 
       let action = "";
 
-      if (gameContext.penaltyMode) {
+      if (gameContext.penaltiMode) {
         action = "Next";
-        const penaltyResult = processPenalty(elapsedTime);
-        if (penaltyResult === "PAR") {
+        const penaltiResult = processpenalti(elapsedTime);
+        if (penaltiResult === "PAR") {
           if (
-            gameContext.penaltySelection === "PAR" ||
-            gameContext.penaltySelection === ""
+            gameContext.penaltiSelection === "PAR" ||
+            gameContext.penaltiSelection === ""
           ) {
             action = goalText;
             setIsExploding(true);
@@ -66,7 +66,7 @@ export const Clock = () => {
             nextPlayer = nextPlayer === "1" ? "2" : "1";
           }
         } else {
-          if (gameContext.penaltySelection === "IMPAR") {
+          if (gameContext.penaltiSelection === "IMPAR") {
             action = goalText;
             setIsExploding(true);
             if (nextPlayer === "1") {
@@ -91,8 +91,8 @@ export const Clock = () => {
             scorePlayer2 = gameContext.scorePlayer2 + 1;
           }
           // } else if (action === "FALTA") {
-        } else if (action === "Penalty") {
-          penaltyMode = true;
+        } else if (action === "Penalti") {
+          penaltiMode = true;
         } else {
           nextPlayer = nextPlayer === "1" ? "2" : "1";
         }
@@ -105,7 +105,7 @@ export const Clock = () => {
         scorePlayer2: scorePlayer2,
         action: action,
         isPlaying: false,
-        penaltyMode: penaltyMode,
+        penaltiMode: penaltiMode,
       });
     } else {
       handleStart();

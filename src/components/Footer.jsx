@@ -4,7 +4,7 @@ import "./Footer.css";
 
 export const Footer = () => {
   const divFooter = (
-    <div className="divTooltip">
+    <div className="divTooltipFooter">
       <p>
         <a
           href="https://stackoverflow.com/questions/19694130/page-height-to-100-of-viewport"
@@ -24,6 +24,7 @@ export const Footer = () => {
       </p>
     </div>
   );
+
   return (
     <footer className="footer">
       <Tooltip
